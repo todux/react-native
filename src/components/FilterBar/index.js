@@ -11,6 +11,11 @@ import styles from './styles'
 
 class FilterBar extends Component {
 
+  constructor() {
+    super()
+    this.onFilter = this.onFilter.bind(this)
+  }
+
   indexOf(filter) {
     const { filterOptions } = this.props
     return findIndex(values(filterOptions), filter)

@@ -27,7 +27,9 @@ class TodoItem extends Component {
         <Icon
           name={iconName}
           style={iconStyle}
-          onPress={() => onUpdate({completed: !todo.completed})}
+          onPress={() => {
+            if (todo.id) onUpdate({completed: !todo.completed})
+          }}
         />
         <Text style={textStyles}>{todo.text}</Text>
       </View>
