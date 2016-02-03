@@ -5,7 +5,7 @@ import React, {
 } from 'react-native'
 
 import { connect } from 'react-redux'
-import { find, map, clone } from 'lodash'
+import { map, clone } from 'lodash'
 
 import {
   createTodo,
@@ -15,6 +15,7 @@ import {
 } from 'redux-mvc-store/actions'
 
 import TodoList from './components/TodoList'
+import TodoItem from './components/TodoList'
 import NavBar from './components/NavBar'
 import styles from './styles'
 
@@ -25,15 +26,23 @@ class Todux extends Component {
     return (
       <View>
         <NavBar
-          title={"ToduxMVC"}
-          filter={filter}
+          title={"Todux"}
+          currentFilter={filter}
           onFilterChange={(newFilter) => dispatch(updateFilter(newFilter))}
         />
         <TodoList
           todos={todos}
           onCreate={(text) => dispatch(createTodo({text}))}
-          onUpdate={(id, update) => dispatch(updateTodo(id, update))}
-          onDelete={(id) => dispatch(deleteTodo(id))}
+          renderTodo={(todo) => {
+            return (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                onDelete={(id) => dispatch(deleteTodo(id))}
+                onUpdate={(id, update) => dispatch(updateTodo(id, update))}
+              />
+            )
+          }}
         />
       </View>
     )

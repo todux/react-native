@@ -25,6 +25,7 @@ class TodoList extends Component {
 
   createDataSource(todos) {
     const ds = new ListView.DataSource({rowHasChanged: this.todoHasChanged})
+
     todos.push({text: '', completed: false})
     return ds.cloneWithRows(todos)
   }
@@ -34,29 +35,22 @@ class TodoList extends Component {
   }
 
   render() {
-    const { onCreate, onUpdate, onDelete } = this.props
+    const { renderTodo, onCreate } = this.props
+
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderRow={(todo) => {
-          if (todo.id) {
+          if (todo.id) return renderTodo(todo)
+          else {
             return (
               <TodoItem
-                key={todo.id}
+                key="new"
                 todo={todo}
-                onDelete={onDelete}
-                onUpdate={onUpdate}
+                onUpdate={(id, update) => onCreate(update.text)}
               />
             )
           }
-
-          return (
-            <TodoItem
-              key="new"
-              todo={todo}
-              onUpdate={(id, update) => onCreate(update.text)}
-            />
-          )
         }}
       />
     )
@@ -65,8 +59,6 @@ class TodoList extends Component {
 
 TodoList.propTypes = {
   onCreate: PropTypes.func.isRequired,
-  onUpdate: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,

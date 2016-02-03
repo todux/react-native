@@ -11,7 +11,7 @@ import styles from './styles'
 
 class FilterBar extends Component {
 
-  index(filter) {
+  indexOf(filter) {
     const { filterOptions } = this.props
     return findIndex(values(filterOptions), filter)
   }
@@ -30,7 +30,7 @@ class FilterBar extends Component {
       <View style={styles.container}>
         <SegmentedControlIOS
           values={keys(filterOptions)}
-          selectedIndex={this.index(filter)}
+          selectedIndex={this.indexOf(filter)}
           onChange={this.onFilter}
         />
       </View>

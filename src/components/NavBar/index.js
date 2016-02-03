@@ -11,14 +11,14 @@ import styles from './styles'
 
 class NavBar extends Component {
   render() {
-    const { onFilterChange, title, filter } = this.props
+    const { onFilterChange, title, currentFilter } = this.props
 
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         <FilterBar
           onFilterChange={onFilterChange}
-          filter={filter}
+          currentFilter={currentFilter}
           filterOptions={{
             'Active': Filters.ACTIVE,
             'All': Filters.ALL,
