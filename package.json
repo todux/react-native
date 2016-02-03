@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "packager": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "npm run start:ios",
+    "start:ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "start:android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "xcode": "open ios/Todux.xcodeproj"
   },
   "dependencies": {
     "lodash": "^4.2.0",
