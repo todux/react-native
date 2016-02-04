@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "packager": "node node_modules/react-native/local-cli/cli.js start",
-    "start": "npm run start:ios",
-    "start:ios": "node node_modules/react-native/local-cli/cli.js run-ios",
-    "start:android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "start": "npm run ios",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "xcode": "open ios/Todux.xcodeproj"
   },
   "dependencies": {
