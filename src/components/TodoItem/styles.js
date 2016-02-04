@@ -9,6 +9,7 @@ export default StyleSheet.create({
     borderTopColor: "#EEE",
     padding: 5,
     alignItems: "center",
+    backgroundColor: '#FFF'
   },
   text: {
     flex: 1,
@@ -26,5 +27,8 @@ export default StyleSheet.create({
   },
   strikethrough: {
     textDecorationLine: "line-through"
+  },
+  deleteStyle: {
+    backgroundColor: 'red'
   }
 });

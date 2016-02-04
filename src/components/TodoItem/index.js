@@ -7,6 +7,7 @@ import React, {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/EvilIcons'
+import Swipeout from 'react-native-swipeout'
 import s from './styles'
 import colors from '../../colors';
 
@@ -27,18 +28,26 @@ class TodoItem extends Component {
     }
 
     return (
-      <View style={s.container}>
-        <Icon
-          name={iconName}
-          style={iconStyle}
-          onPress={() => {
-            if (todo) {
-              onUpdate(todo.id, {completed: !todo.completed})
-            }
-          }}
-        />
-        <Text style={textStyle}>{todo.text}</Text>
-      </View>
+      <Swipeout
+        right={[{
+          text: 'Delete',
+          onPress: () => onDelete(todo.id),
+          backgroundColor: 'red'
+        }]}
+      >
+        <View style={s.container}>
+          <Icon
+            name={iconName}
+            style={iconStyle}
+            onPress={() => {
+              if (todo) {
+                onUpdate(todo.id, {completed: !todo.completed})
+              }
+            }}
+          />
+          <Text style={textStyle}>{todo.text}</Text>
+        </View>
+      </Swipeout>
     )
   }
 }
