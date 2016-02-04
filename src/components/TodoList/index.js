@@ -1,6 +1,5 @@
 import React, {
   Component,
-  Text,
   ListView,
   PropTypes,
 } from 'react-native'
@@ -35,7 +34,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const { renderTodo, onCreate } = this.props
+    const { renderTodo, onCreate, todos } = this.props
 
     return (
       <ListView
@@ -46,7 +45,7 @@ class TodoList extends Component {
             return (
               <TodoItem
                 key="new"
-                todo={todo}
+                autoFocusInput={todos.length < 2}
                 onUpdate={(id, update) => onCreate(update.text)}
               />
             )

@@ -1,81 +1,69 @@
 import React, {
   Component,
   View,
+  Text,
+  TouchableHighlight,
   PropTypes,
+  Navigator
 } from 'react-native'
 
-import { connect } from 'react-redux'
-import { map, clone } from 'lodash'
-
-import {
-  createTodo,
-  updateTodo,
-  updateFilter,
-  Filters,
-} from 'redux-mvc-store/actions'
-
-import TodoList from './components/TodoList'
-import TodoItem from './components/TodoList'
-import NavBar from './components/NavBar'
-import styles from './styles'
+import HomeScene from './scenes/HomeScene'
+import SettingsScene from './scenes/SettingsScene'
+import s from './styles'
 
 class Todux extends Component {
-
   render() {
-    const { dispatch, todos, filter } = this.props
     return (
-      <View>
-        <NavBar
-          title={"Todux"}
-          currentFilter={filter}
-          onFilterChange={(newFilter) => dispatch(updateFilter(newFilter))}
-        />
-        <TodoList
-          todos={todos}
-          onCreate={(text) => dispatch(createTodo({text}))}
-          renderTodo={(todo) => {
-            return (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                onDelete={(id) => dispatch(deleteTodo(id))}
-                onUpdate={(id, update) => dispatch(updateTodo(id, update))}
-              />
-            )
-          }}
-        />
-      </View>
+      <Navigator
+        initialRoute={HomeScene.route}
+        renderScene={(route, navigator) => {
+          switch (route.title) {
+            case HomeScene.route.title:
+              return <HomeScene style={s.scene}/>
+
+            case SettingsScene.route.title:
+              return <SettingsScene style={s.scene}/>
+          }
+        }}
+        navigationBar={
+          <Navigator.NavigationBar
+            style={s.navBar}
+            routeMapper={{
+              LeftButton: (route, navigator, index, navState) => {
+                switch (route.title) {
+                  case HomeScene.route.title:
+                    return null
+
+                  case SettingsScene.route.title:
+                    return <SettingsScene.NavLeft navigator={navigator} style={[s.navText, s.navLeft]}/>
+              }
+
+                return null
+              },
+
+              Title: (route, navigator, index, navState) => {
+                return (
+                  <Text style={[s.navText, s.navTitle]}>
+                    {route.title}
+                  </Text>
+                )
+              },
+
+              RightButton: (route, navigator, index, navState) => {
+                switch (route.title) {
+                  case HomeScene.route.title:
+                    return <HomeScene.NavRight navigator={navigator}/>
+
+                  case SettingsScene.route.title:
+                    return <SettingsScene.NavRight navigator={navigator} style={[s.navText, s.navRight]}/>
+                }
+              }
+            }}
+          />
+        }
+      />
     )
   }
 }
 
-Todux.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired,
-    firebase_key: PropTypes.string,
-  }).isRequired).isRequired,
-  filter: PropTypes.string
-}
-
-function filterTodos(todos, filter) {
-  switch (filter) {
-    case Filters.ALL:
-      return todos
-    case Filters.COMPLETED:
-      return todos.filter(todo => todo.completed)
-    case Filters.ACTIVE:
-      return todos.filter(todo => !todo.completed)
-  }
-}
-
-function selector(state) {
-  const reversedTodos = map(state.todos, clone).reverse()
-  return {
-    todos: filterTodos(reversedTodos, state.filter),
-    filter: state.filter
-  }
-}
-
-export default connect(selector)(Todux)
+export default Todux

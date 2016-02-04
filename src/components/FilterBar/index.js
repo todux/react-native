@@ -1,13 +1,13 @@
 import React, {
   Component,
   SegmentedControlIOS,
-  Text,
   View,
   PropTypes,
 } from 'react-native'
 
 import { keys, values, findIndex } from 'lodash'
-import styles from './styles'
+import s from './styles'
+import colors from '../../colors'
 
 class FilterBar extends Component {
 
@@ -32,8 +32,9 @@ class FilterBar extends Component {
     const { onFilterChange, filter, filterOptions } = this.props
 
     return (
-      <View style={styles.container}>
+      <View style={s.container}>
         <SegmentedControlIOS
+          tintColor={colors.darkBlue}
           values={keys(filterOptions)}
           selectedIndex={this.indexOf(filter)}
           onChange={this.onFilter}

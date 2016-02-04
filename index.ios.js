@@ -1,7 +1,9 @@
-import React, { AppRegistry, Component } from 'react-native'
+import React, { AppRegistry, Component, StatusBarIOS } from 'react-native'
 import { Provider } from 'react-redux'
 
 import Todux from './src/app'
+
+StatusBarIOS.setStyle('light-content')
 
 import { initialize } from 'redux-mvc-store/actions'
 import store from 'redux-mvc-store'

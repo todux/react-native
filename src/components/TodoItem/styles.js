@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { StyleSheet } from 'react-native';
 import colors from '../../colors';
 
@@ -15,6 +13,8 @@ export default StyleSheet.create({
   text: {
     flex: 1,
     color: colors.darkBlue,
+    fontSize:19,
+    minHeight: 50,
   },
   icon: {
     fontSize: 48,
