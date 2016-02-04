@@ -7,58 +7,27 @@ import React, {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/EvilIcons'
-import styles from './styles'
+import s from './styles'
 import colors from '../../colors';
 
 class TodoItem extends Component {
 
-  constructor() {
-    super()
-    this.state = { text: '' }
-    this.clearInputText = this.clearInputText.bind(this)
-    this.inputSubmit = this.inputSubmit.bind(this)
-  }
-
-  clearInputText() {
-    this.setState({ text: '' })
-  }
-
-  inputSubmit() {
-    this.props.onUpdate(undefined, this.state)
-  }
-
   render() {
-    const { onUpdate, onDelete, todo, autoFocusInput } = this.props
+    const { onUpdate, onDelete, todo } = this.props
 
     let iconName = "minus",
-        iconStyle = [styles.icon],
-        textStyle = [styles.text],
+        iconStyle = [s.icon],
+        textStyle = [s.text],
         textComponent
 
-    if (todo) {
-      if (todo.completed) {
-        iconName = "check"
-        iconStyle.push(styles.iconCompleted)
-        textStyle.push(styles.strikethrough)
-      }
-
-      textComponent = <Text style={textStyle}>{todo.text}</Text>
-    }
-    else {
-      textComponent = <TextInput
-        placeholder="Add a new Todo!"
-        selectionColor={colors.darkBlue}
-        style={textStyle}
-        value={this.state.text}
-        autoFocus={autoFocusInput}
-        onChangeText={(text) => this.setState({text})}
-        onEndEditing={this.clearInputText}
-        onSubmitEditing={this.inputSubmit}
-      />
+    if (todo.completed) {
+      iconName = "check"
+      iconStyle.push(s.iconCompleted)
+      textStyle.push(s.strikethrough)
     }
 
     return (
-      <View style={styles.container}>
+      <View style={s.container}>
         <Icon
           name={iconName}
           style={iconStyle}
@@ -68,22 +37,20 @@ class TodoItem extends Component {
             }
           }}
         />
-        {textComponent}
+        <Text style={textStyle}>{todo.text}</Text>
       </View>
     )
   }
 }
 
 TodoItem.propTypes = {
-  onCreate: PropTypes.func,
   onUpdate: PropTypes.func,
   onDelete: PropTypes.func,
-  autoFocusInput: PropTypes.bool,
   todo: PropTypes.shape({
     id: PropTypes.string,
     text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
-  }),
+  }).isRequired,
 }
 
 export default TodoItem

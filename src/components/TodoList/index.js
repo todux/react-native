@@ -5,7 +5,8 @@ import React, {
 } from 'react-native'
 
 import TodoItem from '../TodoItem'
-import styles from './styles'
+import TodoAdd from '../TodoAdd'
+import s from './styles'
 
 class TodoList extends Component {
 
@@ -43,10 +44,8 @@ class TodoList extends Component {
           if (todo.id) return renderTodo(todo)
           else {
             return (
-              <TodoItem
-                key="new"
-                autoFocusInput={todos.length < 2}
-                onUpdate={(id, update) => onCreate(update.text)}
+              <TodoAdd
+                onCreate={(text) => onCreate(text)}
               />
             )
           }

@@ -5,8 +5,10 @@ export default StyleSheet.create({
   container: {
     flexDirection: "row",
     minHeight: 50,
-    borderTopWidth: 1,
-    borderTopColor: "#EEE",
+    borderTopWidth: 5,
+    borderTopColor: colors.darkBlue,
+    borderBottomWidth: 1,
+    borderBottomColor: "#EEE",
     padding: 5,
     alignItems: "center",
   },
