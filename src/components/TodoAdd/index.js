@@ -33,7 +33,6 @@ class TodoAdd extends Component {
           style={s.text}
           value={this.state.text}
           onChangeText={(text) => this.setState({text})}
-          onEndEditing={this.clear}
           onSubmitEditing={this.submit}
         />
       </View>

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -30,6 +31,8 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85442EABB5F34E3EA3B94343 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1CB5EE0E6947128F098DF6 /* libRNVectorIcons.a */; };
 		B557C29C10314254BF9C8F28 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7B1DF32A24740AC9D206AA2 /* Entypo.ttf */; };
+		FCBFE7AC1C657F57002615AC /* todux-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBFE7AA1C657F57002615AC /* todux-logo.png */; };
+		FCBFE7AD1C657F57002615AC /* todux-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBFE7AB1C657F57002615AC /* todux-logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +154,8 @@
 		D43C1B11F52A40DB816DCACD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		E7B1DF32A24740AC9D206AA2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		FB1CB5EE0E6947128F098DF6 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		FCBFE7AA1C657F57002615AC /* todux-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todux-logo.png"; path = "../../../../../Desktop/todux-logo.png"; sourceTree = "<group>"; };
+		FCBFE7AB1C657F57002615AC /* todux-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todux-logo@2x.png"; path = "../../../../../Desktop/todux-logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +269,8 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				FCBFE7AA1C657F57002615AC /* todux-logo.png */,
+				FCBFE7AB1C657F57002615AC /* todux-logo@2x.png */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = Todux;
@@ -567,8 +574,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBFE7AD1C657F57002615AC /* todux-logo@2x.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				FCBFE7AC1C657F57002615AC /* todux-logo.png in Resources */,
 				B557C29C10314254BF9C8F28 /* Entypo.ttf in Resources */,
 				39F981FECAB14E25A071C4A5 /* EvilIcons.ttf in Resources */,
 				2B5EE1AD40754C8581B3776C /* FontAwesome.ttf in Resources */,
