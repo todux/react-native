@@ -3,8 +3,8 @@ import { Provider } from 'react-redux'
 
 import Todux from './src/app'
 
-import { Filters, initialize } from 'redux-mvc-store/actions'
-import store from 'redux-mvc-store'
+import { Filters, initialize } from 'todux-store/actions'
+import store from 'todux-store'
 
 store.dispatch(initialize((callback) => {
   callback({
@@ -24,4 +24,4 @@ class App extends Component {
   }
 }
 
-AppRegistry.registerComponent('Todux', () => App);
+AppRegistry.registerComponent('Todux', () => App)

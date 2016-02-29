@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import Todux from './src/app'
 
 import { initialize } from 'redux-mvc-store/actions'
-import store from 'redux-mvc-store'
+import store from 'todux-store'
 
 store.dispatch(initialize())
 

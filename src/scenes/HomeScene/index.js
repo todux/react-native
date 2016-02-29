@@ -11,7 +11,7 @@ import {
   deleteTodo,
   updateFilter,
   Filters,
-} from 'redux-mvc-store/actions'
+} from 'todux-store/actions'
 
 import { connect } from 'react-redux'
 import { map, clone } from 'lodash'

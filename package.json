@@ -16,6 +16,6 @@
     "react-native-vector-icons": "^1.1.1",
     "react-redux": "^4.2.1",
     "redux": "^3.2.1",
-    "redux-mvc-store": "git@bitbucket.org:jondavidjohn/redux-mvc-store.git#master"
+    "todux-store": "^1.0.0"
   }
 }
